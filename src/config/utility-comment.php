@@ -7,15 +7,15 @@ return [
             'resource_url' => 'utilities/comments',
             'status_options' => [
                 'pending' => [
-                    'text' => 'Utility::attributes.comments.status_options.pending',
+                    'text' => 'utility-comment::attributes.comments.status_options.pending',
                     'level' => 'info'
                 ],
                 'published' => [
-                    'text' => 'Utility::attributes.comments.status_options.published',
+                    'text' => 'utility-comment::attributes.comments.status_options.published',
                     'level' => 'success'
                 ],
                 'trashed' => [
-                    'text' => 'Utility::attributes.comments.status_options.trashed',
+                    'text' => 'utility-comment::attributes.comments.status_options.trashed',
                     'level' => 'warning'
                 ],
             ],
@@ -26,7 +26,7 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/pending', 'replace' => ['return $object->getShowURL();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('Utility::attributes.comments.status_options.pending');"]
+                        'replace' => ["return trans('utility-comment::attributes.comments.status_options.pending');"]
                     ],
                     'policies' => ['updateStatus'],
                     'policies_args' => 'pending',
@@ -41,7 +41,7 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/published', 'replace' => ['return $object->getShowURL();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('Utility::attributes.comments.status_options.published');"]
+                        'replace' => ["return trans('utility-comment::attributes.comments.status_options.published');"]
                     ],
                     'policies' => ['updateStatus'],
                     'policies_args' => 'published',
@@ -56,7 +56,7 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/trashed', 'replace' => ['return $object->getShowURL();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('Utility::attributes.comments.status_options.trashed');"]
+                        'replace' => ["return trans('utility-comment::attributes.comments.status_options.trashed');"]
                     ],
                     'policies' => ['updateStatus'],
                     'policies_args' => 'trashed',
