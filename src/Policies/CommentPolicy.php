@@ -8,7 +8,7 @@ use Corals\User\Models\User;
 
 class CommentPolicy extends BasePolicy
 {
-    protected $administrationPermission = 'Administrations::admin.utility';
+    protected $administrationPermission = 'Administrations::admin.utility_comment';
 
     protected $skippedAbilities = ['updateStatus', 'create'];
 
@@ -22,8 +22,10 @@ class CommentPolicy extends BasePolicy
 
     public function create(User $user)
     {
+        if ($user->hasRole('member') && $user->can('Utility::comment.create')) {
+            return true;
+        }
         return false;
-//        return $user->can('Utility::comment.create');
     }
 
     public function view(User $user)
