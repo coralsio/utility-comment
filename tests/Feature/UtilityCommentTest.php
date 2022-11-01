@@ -50,23 +50,22 @@ class UtilityCommentTest extends TestCase
                     if (array_search('Corals\\Modules\\Utility\\Comment\\Traits\\ModelHasComments', $traits)) {
                         $model = $class::query()->first();
                         if ($model) {
-                            $comments = array("Im happy", "Hey people", "Good", "Nice");
+                            $comments = ["Im happy", "Hey people", "Good", "Nice"];
                             $response = $this->post($array['prefix'] . '/' . $model->hashed_id . '/create-comment', [
-                                'body' => array_rand($comments)]);
+                                'body' => array_rand($comments), ]);
 
                             $this->comment = Comment::query()->first();
                             $response->assertStatus(200)->assertSeeText('Your comment has been added successfully');
 
-                            $names = array("Ali", "Nour", "Susan", "Tom");
-                            $email = array("ali@comment.com", "nour@comment.com", "susan@comment.com", "tom@comment.com");
+                            $names = ["Ali", "Nour", "Susan", "Tom"];
+                            $email = ["ali@comment.com", "nour@comment.com", "susan@comment.com", "tom@comment.com"];
                             $response2 = $this->post($array['prefix'] . '/' . $this->comment->hashed_id . '/create-reply', [
                                 'properties' => [
                                     'author_name' => array_rand($names),
-                                    'author_email' => array_rand($email)],
-                                'body' => array_rand($comments)]);
+                                    'author_email' => array_rand($email), ],
+                                'body' => array_rand($comments), ]);
 
                             $response2->assertStatus(200)->assertSeeText('Your comment has been added successfully');
-
                         }
                     }
                 }
@@ -92,7 +91,6 @@ class UtilityCommentTest extends TestCase
             $response = $this->delete('utilities/comments/' . $this->comment->hashed_id);
 
             $response->assertStatus(200)->assertSeeText('Comment has been deleted successfully.');
-
         }
         $this->assertTrue(true);
     }

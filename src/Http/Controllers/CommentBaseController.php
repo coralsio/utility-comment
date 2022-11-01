@@ -58,14 +58,17 @@ class CommentBaseController extends BaseController
 
             if ($this->requireApproval) {
                 $data['status'] = 'pending';
-            }else{
+            } else {
                 $data['status'] = 'published';
-
             }
 
 
-            $comment = $this->commentService->createComment($data, $this->commentableClass, $commentable_hashed_id,
-                $this->author);
+            $comment = $this->commentService->createComment(
+                $data,
+                $this->commentableClass,
+                $commentable_hashed_id,
+                $this->author
+            );
 
             if ($comment->status == 'pending') {
                 $message = $this->successMessageWithPending;
@@ -130,29 +133,34 @@ class CommentBaseController extends BaseController
                 case 'delete':
                     foreach ($selection as $selection_id) {
                         $comment = Comment::findByHash($selection_id);
-                        $comment_request = new CommentRequest;
+                        $comment_request = new CommentRequest();
                         $comment_request->setMethod('DELETE');
                         $this->destroy($comment_request, $comment);
                     }
                     $message = [
                         'level' => 'success',
-                        'message' => trans('Corals::messages.success.deleted', ['item' => $this->title_singular])
+                        'message' => trans('Corals::messages.success.deleted', ['item' => $this->title_singular]),
                     ];
+
                     break;
                 case 'pending':
                     $message = $this->updateStatus($selection, 'pending') ?? [];
+
                     break;
                 case 'published':
                     $message = $this->updateStatus($selection, 'published') ?? [];
+
                     break;
                 case 'trashed':
                     $message = $this->updateStatus($selection, 'trashed') ?? [];
+
                     break;
             }
         } catch (\Exception $exception) {
             log_exception($exception, Comment::class, 'bulkAction');
             $message = ['level' => 'error', 'message' => $exception->getMessage()];
         }
+
         return response()->json($message);
     }
 
@@ -163,7 +171,7 @@ class CommentBaseController extends BaseController
 
             $message = [
                 'level' => 'success',
-                'message' => trans('Corals::messages.success.deleted', ['item' => $this->title_singular])
+                'message' => trans('Corals::messages.success.deleted', ['item' => $this->title_singular]),
             ];
         } catch (\Exception $exception) {
             log_exception($exception, Comment::class, 'destroy');
@@ -182,21 +190,25 @@ class CommentBaseController extends BaseController
 
             if (user()->can('Utility::comment.set_status', [$comment, $status])) {
                 $comment->update([
-                    'status' => $status
+                    'status' => $status,
                 ]);
 
                 $comment->save();
 
                 $message = [
                     'level' => 'success',
-                    'message' => trans('utility-comment::attributes.update_status',
-                        ['item' => $this->title_singular])
+                    'message' => trans(
+                        'utility-comment::attributes.update_status',
+                        ['item' => $this->title_singular]
+                    ),
                 ];
             } else {
                 $message = [
                     'level' => 'error',
-                    'message' => trans('utility-comment::attributes.no_permission',
-                        ['item' => $this->title_singular])
+                    'message' => trans(
+                        'utility-comment::attributes.no_permission',
+                        ['item' => $this->title_singular]
+                    ),
                 ];
             }
         }

@@ -4,8 +4,6 @@ namespace Corals\Modules\Utility\Comment\Services;
 
 use Corals\Foundation\Services\BaseServiceClass;
 use Corals\Modules\Utility\Comment\Classes\CommentManager;
-use Corals\User\Models\User;
-use net\authorize\api\contract\v1\TransactionRequestType\UserFieldsAType;
 
 class CommentService extends BaseServiceClass
 {
@@ -24,7 +22,7 @@ class CommentService extends BaseServiceClass
 
         $commentable = $commentableClass::findByHash($commentable_hashed_id);
 
-        if (!$commentable) {
+        if (! $commentable) {
             abort(404, 'Not Found!!');
         }
 
@@ -41,7 +39,6 @@ class CommentService extends BaseServiceClass
             'properties' => $data['properties'] ?? [],
         ]);
     }
-
 
     public function replyComment($data, $comment)
     {

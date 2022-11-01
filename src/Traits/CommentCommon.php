@@ -2,7 +2,6 @@
 
 namespace Corals\Modules\Utility\Comment\Traits;
 
-
 trait CommentCommon
 {
     protected $commentService;

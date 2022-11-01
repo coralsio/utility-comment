@@ -17,6 +17,7 @@ class CommentPolicy extends BasePolicy
         if ($comment->status == $status) {
             return false;
         }
+
         return $user->can('Utility::comment.set_status');
     }
 
@@ -25,6 +26,7 @@ class CommentPolicy extends BasePolicy
         if ($user->hasRole('member') && $user->can('Utility::comment.create')) {
             return true;
         }
+
         return false;
     }
 

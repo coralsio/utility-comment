@@ -31,18 +31,24 @@ class CommentTransformer extends BaseTransformer
         $transformedArray = [
             'id' => $comment->id,
             'checkbox' => $this->generateCheckboxElement($comment),
-            'body' => $comment->body ? ((strlen($comment->body) <= 70) ? $comment->body : Str::limit($comment->body,
+            'body' => $comment->body ? ((strlen($comment->body) <= 70) ? $comment->body : Str::limit(
+                $comment->body,
                 70,
-                ' ' . generatePopover($comment->body))) : '-',
-            'commentable_id' => (strlen($commentable_title) <= 50) ? $commentable_title : Str::limit($commentable_title,
+                ' ' . generatePopover($comment->body)
+            )) : '-',
+            'commentable_id' => (strlen($commentable_title) <= 50) ? $commentable_title : Str::limit(
+                $commentable_title,
                 50,
-                ' ' . generatePopover($comment->commentable->title)),
+                ' ' . generatePopover($comment->commentable->title)
+            ),
             'commentable_type' => $objectShowURL ? '<a href="' . $objectShowURL . '" target="_blank">' . basename($comment->commentable_type) . '</a>' : basename($comment->commentable_type),
             'author_id' => $comment_author->name ? "<a href='" . url('users/' . $comment_author->hashed_id) . "'> {$comment_author->name}</a>" : "-",
-            'status' => formatStatusAsLabels($comment->status ?? ($comment->status ?? 'N/A'),
-                $comment->getConfig('status_options')[$comment->status] ?? []),
+            'status' => formatStatusAsLabels(
+                $comment->status ?? ($comment->status ?? 'N/A'),
+                $comment->getConfig('status_options')[$comment->status] ?? []
+            ),
             'created_at' => format_date_time($comment->created_at),
-            'action' => $this->actions($comment)
+            'action' => $this->actions($comment),
         ];
 
         return parent::transformResponse($transformedArray);

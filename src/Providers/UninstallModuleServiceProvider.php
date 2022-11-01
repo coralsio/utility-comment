@@ -2,9 +2,9 @@
 
 namespace Corals\Modules\Utility\Comment\Providers;
 
+use Corals\Foundation\Providers\BaseUninstallModuleServiceProvider;
 use Corals\Modules\Utility\Comment\database\migrations\CreateCommentsTable;
 use Corals\Modules\Utility\Comment\database\seeds\UtilityCommentDatabaseSeeder;
-use Corals\Foundation\Providers\BaseUninstallModuleServiceProvider;
 
 class UninstallModuleServiceProvider extends BaseUninstallModuleServiceProvider
 {

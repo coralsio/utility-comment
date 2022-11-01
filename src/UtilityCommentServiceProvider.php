@@ -47,7 +47,6 @@ class UtilityCommentServiceProvider extends ServiceProvider
         });
     }
 
-
     protected function registerMorphMaps()
     {
         Relation::morphMap([
@@ -65,11 +64,13 @@ class UtilityCommentServiceProvider extends ServiceProvider
         CoralsNotification::addEvent(
             'notifications.comment.comment_created',
             'Comment Created',
-            CommentCreated::class);
+            CommentCreated::class
+        );
 
         CoralsNotification::addEvent(
             'notifications.comment.comment_toggle_status',
             'Comment Toggle Status',
-            CommentToggleStatus::class);
+            CommentToggleStatus::class
+        );
     }
 }

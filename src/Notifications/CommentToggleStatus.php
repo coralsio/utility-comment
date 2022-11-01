@@ -17,7 +17,7 @@ class CommentToggleStatus extends CoralsBaseNotification
 
         $owner = method_exists($commentable, 'owner') ? $commentable->owner() : $commentable->creator;
 
-        if (!empty($owner)) {
+        if (! empty($owner)) {
             return $owner;
         } else {
             return [];
@@ -38,7 +38,7 @@ class CommentToggleStatus extends CoralsBaseNotification
             'commentable_class' => class_basename($commentable),
             'comment_body' => $comment->body ?? '-',
             'comment_status' => $comment->present('status'),
-            'author_name' => isset($author) ? $author->name  : $comment->getProperty('author_name') ,
+            'author_name' => isset($author) ? $author->name : $comment->getProperty('author_name') ,
             'author_email' => isset($author) ? $author->email : $comment->getProperty('author_email'),
         ];
     }
