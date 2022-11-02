@@ -2,15 +2,12 @@
     "code": "corals-utility-comment",
     "name": "Utility Comments",
     "author": "Corals",
-    "type": "verndor",
+    "type": "module",
     "description": "Utility Comments",
     "namespace": "Corals\\Modules\\Utility\\Comment",
     "provider": "UtilityCommentServiceProvider",
-    "version": "4.2.4",
-    "load_order": "600",
+    "version": "1.0",
+    "load_order": "0",
     "folder": "utility-comment",
-    "autoload": "psr-4",
-    "icon": "fa fa-comment",
-    "platform": "UtilityComment",
-    "supported_platforms": []
+    "icon": "fa fa-comment"
 }

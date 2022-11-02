@@ -22,10 +22,7 @@ class CommentPolicy extends BasePolicy
 
     public function create(User $user)
     {
-        if ($user->hasRole('member') && $user->can('Utility::comment.create')) {
-            return true;
-        }
-        return false;
+        return $user->can('Utility::comment.create');
     }
 
     public function view(User $user)
