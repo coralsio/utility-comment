@@ -68,21 +68,21 @@ class CommentsDataTable extends BaseDataTable
                 'class' => 'col-md-3',
                 'type' => 'text',
                 'condition' => 'like',
-                'active' => true
+                'active' => true,
             ],
             'status' => [
                 'title' => trans('Corals::attributes.status'),
                 'class' => 'col-md-2',
                 'type' => 'select',
                 'options' => trans('utility-comment::attributes.comments.status_options'),
-                'active' => true
+                'active' => true,
             ],
             'commentable_type' => [
                 'title' => trans('utility-comment::attributes.comments.object'),
                 'class' => 'col-md-2',
                 'type' => 'select',
                 'options' => CommentManager::getCommentableTypes(),
-                'active' => true
+                'active' => true,
             ],
         ];
     }
@@ -93,22 +93,22 @@ class CommentsDataTable extends BaseDataTable
             'delete' => [
                 'title' => trans('Corals::labels.delete'),
                 'permission' => 'Utility::comment.delete',
-                'confirmation' => trans('Corals::labels.confirmation.title')
+                'confirmation' => trans('Corals::labels.confirmation.title'),
             ],
             'pending' => [
                 'title' => '<i class="fa fa-fw fa-clock-o"></i> ' . trans('utility-comment::attributes.comments.status_options.pending'),
                 'permission' => 'Utility::comment.set_status',
-                'confirmation' => trans('Corals::labels.confirmation.title')
+                'confirmation' => trans('Corals::labels.confirmation.title'),
             ],
             'published' => [
                 'title' => '<i class="fa fa-fw fa-check"></i> ' . trans('utility-comment::attributes.comments.status_options.published'),
                 'permission' => 'Utility::comment.set_status',
-                'confirmation' => trans('Corals::labels.confirmation.title')
+                'confirmation' => trans('Corals::labels.confirmation.title'),
             ],
             'trashed' => [
                 'title' => '<i class="fa fa-fw fa-trash-o"></i> ' . trans('utility-comment::attributes.comments.status_options.trashed'),
                 'permission' => 'Utility::comment.set_status',
-                'confirmation' => trans('Corals::labels.confirmation.title')
+                'confirmation' => trans('Corals::labels.confirmation.title'),
             ],
         ];
     }
@@ -116,6 +116,7 @@ class CommentsDataTable extends BaseDataTable
     protected function getOptions()
     {
         $url = url(config('utility-comment.models.comment.resource_url'));
+
         return ['resource_url' => $url];
     }
 }

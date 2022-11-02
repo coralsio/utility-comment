@@ -31,7 +31,7 @@ class CommentCreated extends CoralsBaseNotification
             'commentable_class' => class_basename($commentable),
             'comment_body' => $comment->body ?? '-',
             'comment_status' => $comment->present('status'),
-            'author_name' => isset($author) ? $author->name  : $comment->getProperty('author_name') ,
+            'author_name' => isset($author) ? $author->name : $comment->getProperty('author_name') ,
             'author_email' => isset($author) ? $author->email : $comment->getProperty('author_email'),
         ];
     }
@@ -58,7 +58,6 @@ class CommentCreated extends CoralsBaseNotification
         $commentable = $comment->commentable;
 
         if (method_exists($commentable, 'owner')) {
-
             $owner = $commentable->owner();
 
             if ($owner instanceof Relation) {

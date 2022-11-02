@@ -8,8 +8,8 @@ use Corals\Modules\Utility\Comment\Traits\ModelHasComments;
 
 class Comment extends BaseModel
 {
-
-    use PresentableTrait, ModelHasComments;
+    use PresentableTrait;
+    use ModelHasComments;
 
     public static function htmlentitiesExcluded($key = null)
     {
@@ -32,7 +32,7 @@ class Comment extends BaseModel
 
     protected $casts = [
         'properties' => 'json',
-        'is_private' => 'boolean'
+        'is_private' => 'boolean',
     ];
 
     /**

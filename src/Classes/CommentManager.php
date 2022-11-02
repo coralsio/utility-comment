@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class CommentManager
 {
-
-    protected $instance, $author;
+    protected $instance;
+    protected $author;
 
     /**
      * RatingManager constructor.

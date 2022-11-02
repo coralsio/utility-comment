@@ -8,15 +8,15 @@ return [
             'status_options' => [
                 'pending' => [
                     'text' => 'utility-comment::attributes.comments.status_options.pending',
-                    'level' => 'info'
+                    'level' => 'info',
                 ],
                 'published' => [
                     'text' => 'utility-comment::attributes.comments.status_options.published',
-                    'level' => 'success'
+                    'level' => 'success',
                 ],
                 'trashed' => [
                     'text' => 'utility-comment::attributes.comments.status_options.trashed',
-                    'level' => 'warning'
+                    'level' => 'warning',
                 ],
             ],
             'actions' => [
@@ -26,14 +26,14 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/pending', 'replace' => ['return $object->getShowURL();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('utility-comment::attributes.comments.status_options.pending');"]
+                        'replace' => ["return trans('utility-comment::attributes.comments.status_options.pending');"],
                     ],
                     'policies' => ['updateStatus'],
                     'policies_args' => 'pending',
                     'permissions' => [],
                     'data' => [
                         'action' => "post",
-                        'table' => "#CommentsDataTable"
+                        'table' => "#CommentsDataTable",
                     ],
                 ],
                 'published' => [
@@ -41,14 +41,14 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/published', 'replace' => ['return $object->getShowURL();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('utility-comment::attributes.comments.status_options.published');"]
+                        'replace' => ["return trans('utility-comment::attributes.comments.status_options.published');"],
                     ],
                     'policies' => ['updateStatus'],
                     'policies_args' => 'published',
                     'permissions' => [],
                     'data' => [
                         'action' => "post",
-                        'table' => "#CommentsDataTable"
+                        'table' => "#CommentsDataTable",
                     ],
                 ],
                 'trashed' => [
@@ -56,14 +56,14 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/trashed', 'replace' => ['return $object->getShowURL();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('utility-comment::attributes.comments.status_options.trashed');"]
+                        'replace' => ["return trans('utility-comment::attributes.comments.status_options.trashed');"],
                     ],
                     'policies' => ['updateStatus'],
                     'policies_args' => 'trashed',
                     'permissions' => [],
                     'data' => [
                         'action' => "post",
-                        'table' => "#CommentsDataTable"
+                        'table' => "#CommentsDataTable",
                     ],
                 ],
             ],

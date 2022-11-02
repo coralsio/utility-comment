@@ -3,6 +3,6 @@
 return [
     'comment' => [
         'title' => 'Comments',
-        'title_singular' => 'Comment'
+        'title_singular' => 'Comment',
     ],
 ];

@@ -43,7 +43,7 @@ class CommentRequest extends BaseRequest
             $rules = array_merge($rules, [
                 'body' => 'required|max:191',
             ]);
-            if(!user() && \Settings::get('cms_comments_allow_guest')){
+            if (! user() && \Settings::get('cms_comments_allow_guest')) {
                 $rules = array_merge($rules, [
                     'properties.author_name' => 'required|max:191',
                     'properties.author_email' => 'required|email',
