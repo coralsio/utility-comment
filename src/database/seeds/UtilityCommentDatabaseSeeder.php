@@ -17,6 +17,7 @@ class UtilityCommentDatabaseSeeder extends Seeder
     {
         $this->call(UtilityCommentPermissionsDatabaseSeeder::class);
         $this->call(UtilityCommentNotificationTemplatesSeeder::class);
+        $this->call(UtilityCommentMenuDatabaseSeeder::class);
     }
 
     public function rollback()
