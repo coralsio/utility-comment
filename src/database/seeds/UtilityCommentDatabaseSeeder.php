@@ -23,7 +23,6 @@ class UtilityCommentDatabaseSeeder extends Seeder
     public function rollback()
     {
         Permission::where('name', 'like', 'Utility::comment%')->delete();
-        Permission::where('name', 'Administrations::admin.utility_comment')->delete();
 
         NotificationTemplate::where('name', 'like', 'notifications.utility_comment%')->delete();
     }

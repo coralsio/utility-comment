@@ -13,7 +13,7 @@ class UtilityCommentTest extends TestCase
 {
     use DatabaseTransactions;
 
-    protected $comment = [];
+    protected $comment;
 
     protected function setUp(): void
     {
@@ -51,7 +51,8 @@ class UtilityCommentTest extends TestCase
                                 'body' => array_rand($comments), ]);
 
                             $this->comment = Comment::query()->first();
-                            $response->assertStatus(200)->assertSeeText('Your comment has been added successfully');
+                            $response->assertDontSee('The given data was invalid')
+                                ->assertSeeText('Your comment has been added successfully');
 
                             $names = ["Ali", "Nour", "Susan", "Tom"];
                             $email = ["ali@comment.com", "nour@comment.com", "susan@comment.com", "tom@comment.com"];
@@ -61,7 +62,16 @@ class UtilityCommentTest extends TestCase
                                     'author_email' => array_rand($email), ],
                                 'body' => array_rand($comments), ]);
 
-                            $response2->assertStatus(200)->assertSeeText('Your comment has been added successfully');
+                            $response2->assertDontSee('The given data was invalid')
+                                ->assertSeeText('Your comment has been added successfully');
+
+                            $this->assertDatabaseHas('utility_comments', [
+                                'body' => $this->comment->body,
+                                'commentable_type' => $this->comment->commentable_type,
+                                'commentable_id' => $this->comment->commentable_id,
+                            ]);
+
+
                         }
                     }
                 }
@@ -72,21 +82,36 @@ class UtilityCommentTest extends TestCase
 
     public function test_utility_comment_toggle_status()
     {
+        $this->test_utility_comment_create_and_reply();
+
         if ($this->comment) {
             $response = $this->post('utilities/comments/' . $this->comment->hashed_id . '/pending');
 
-            $response->assertStatus(200)
-                ->assertSeeText('Comment status has been update successfully');
+            $response->assertStatus(200)->assertSeeText('Comment status has been update successfully');
         }
         $this->assertTrue(true);
     }
 
     public function test_utility_comment_delete()
     {
+        $this->test_utility_comment_create_and_reply();
+
+        $user = User::query()->whereHas('roles', function ($query) {
+            $query->where('name', 'superuser');
+        })->first();
+        Auth::loginUsingId($user->id);
+        
         if ($this->comment) {
             $response = $this->delete('utilities/comments/' . $this->comment->hashed_id);
 
             $response->assertStatus(200)->assertSeeText('Comment has been deleted successfully.');
+
+            $this->isSoftDeletableModel(Comment::class);
+            $this->assertDatabaseMissing('utility_comments', [
+                'body' => $this->comment->body,
+                'commentable_type' => $this->comment->commentable_type,
+                'commentable_id' => $this->comment->commentable_id,
+            ]);
         }
         $this->assertTrue(true);
     }

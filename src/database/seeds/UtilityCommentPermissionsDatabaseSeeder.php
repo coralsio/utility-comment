@@ -16,12 +16,6 @@ class UtilityCommentPermissionsDatabaseSeeder extends Seeder
     public function run()
     {
         \DB::table('permissions')->insert([
-            [
-                'name' => 'Administrations::admin.utility_comment',
-                'guard_name' => config('auth.defaults.guard'),
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ],
             //comment
             [
                 'name' => 'Utility::comment.create',
