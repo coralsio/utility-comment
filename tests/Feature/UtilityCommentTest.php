@@ -70,8 +70,6 @@ class UtilityCommentTest extends TestCase
                                 'commentable_type' => $this->comment->commentable_type,
                                 'commentable_id' => $this->comment->commentable_id,
                             ]);
-
-
                         }
                     }
                 }
@@ -100,7 +98,7 @@ class UtilityCommentTest extends TestCase
             $query->where('name', 'superuser');
         })->first();
         Auth::loginUsingId($user->id);
-        
+
         if ($this->comment) {
             $response = $this->delete('utilities/comments/' . $this->comment->hashed_id);
 
