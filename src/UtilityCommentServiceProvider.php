@@ -2,6 +2,7 @@
 
 namespace Corals\Modules\Utility\Comment;
 
+use Corals\Foundation\Providers\BasePackageServiceProvider;
 use Corals\Modules\Utility\Comment\Classes\CommentManager;
 use Corals\Modules\Utility\Comment\Models\Comment;
 use Corals\Modules\Utility\Comment\Notifications\CommentCreated;
@@ -12,11 +13,15 @@ use Corals\Settings\Facades\Modules;
 use Corals\User\Communication\Facades\CoralsNotification;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
 
-class UtilityCommentServiceProvider extends ServiceProvider
+class UtilityCommentServiceProvider extends BasePackageServiceProvider
 {
-    public function boot()
+    /**
+     * @var
+     */
+    protected $packageCode = 'corals-utility-comment';
+
+    public function bootPackage()
     {
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'utility-comment');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'utility-comment');
@@ -31,12 +36,11 @@ class UtilityCommentServiceProvider extends ServiceProvider
         ]);
 
         $this->registerMorphMaps();
-        $this->registerModulesPackages();
 
         $this->addEvents();
     }
 
-    public function register()
+    public function registerPackage()
     {
         $this->app->register(UtilityAuthServiceProvider::class);
         $this->app->register(UtilityRouteServiceProvider::class);
@@ -54,7 +58,7 @@ class UtilityCommentServiceProvider extends ServiceProvider
         ]);
     }
 
-    protected function registerModulesPackages()
+    public function registerModulesPackages()
     {
         Modules::addModulesPackages('corals/utility-comment');
     }
