@@ -3,8 +3,8 @@
 namespace Corals\Utility\Comment\Policies;
 
 use Corals\Foundation\Policies\BasePolicy;
-use Corals\Utility\Comment\Models\Comment;
 use Corals\User\Models\User;
+use Corals\Utility\Comment\Models\Comment;
 
 class CommentPolicy extends BasePolicy
 {

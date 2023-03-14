@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use Corals\Utility\Comment\Models\Comment;
 use Corals\Settings\Facades\Modules;
 use Corals\User\Models\User;
+use Corals\Utility\Comment\Models\Comment;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
@@ -57,14 +57,16 @@ class UtilityCommentTest extends TestCase
 
                             $names = ["Ali", "Nour", "Susan", "Tom"];
                             $email = ["ali@comment.com", "nour@comment.com", "susan@comment.com", "tom@comment.com"];
-                            $response2 = $this->post($array['prefix'] . '/' . $this->comment->hashed_id . '/create-reply',
+                            $response2 = $this->post(
+                                $array['prefix'] . '/' . $this->comment->hashed_id . '/create-reply',
                                 [
                                     'properties' => [
                                         'author_name' => array_rand($names),
                                         'author_email' => array_rand($email),
                                     ],
                                     'body' => array_rand($comments),
-                                ]);
+                                ]
+                            );
 
                             $response2->assertDontSee('The given data was invalid')
                                 ->assertSeeText('Your comment has been added successfully');

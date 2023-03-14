@@ -3,14 +3,14 @@
 namespace Corals\Utility\Comment;
 
 use Corals\Foundation\Providers\BasePackageServiceProvider;
+use Corals\Settings\Facades\Modules;
+use Corals\User\Communication\Facades\CoralsNotification;
 use Corals\Utility\Comment\Classes\CommentManager;
 use Corals\Utility\Comment\Models\Comment;
 use Corals\Utility\Comment\Notifications\CommentCreated;
 use Corals\Utility\Comment\Notifications\CommentToggleStatus;
 use Corals\Utility\Comment\Providers\UtilityAuthServiceProvider;
 use Corals\Utility\Comment\Providers\UtilityRouteServiceProvider;
-use Corals\Settings\Facades\Modules;
-use Corals\User\Communication\Facades\CoralsNotification;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\AliasLoader;
 
