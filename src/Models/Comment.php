@@ -1,10 +1,10 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Models;
+namespace Corals\Utility\Comment\Models;
 
 use Corals\Foundation\Models\BaseModel;
 use Corals\Foundation\Transformers\PresentableTrait;
-use Corals\Modules\Utility\Comment\Traits\ModelHasComments;
+use Corals\Utility\Comment\Traits\ModelHasComments;
 
 class Comment extends BaseModel
 {

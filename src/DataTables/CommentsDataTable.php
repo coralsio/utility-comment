@@ -1,11 +1,11 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\DataTables;
+namespace Corals\Utility\Comment\DataTables;
 
 use Corals\Foundation\DataTables\BaseDataTable;
-use Corals\Modules\Utility\Comment\Classes\CommentManager;
-use Corals\Modules\Utility\Comment\Models\Comment;
-use Corals\Modules\Utility\Comment\Transformers\CommentTransformer;
+use Corals\Utility\Comment\Classes\CommentManager;
+use Corals\Utility\Comment\Models\Comment;
+use Corals\Utility\Comment\Transformers\CommentTransformer;
 use Illuminate\Http\Request;
 use Yajra\DataTables\EloquentDataTable;
 

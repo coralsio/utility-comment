@@ -1,6 +1,6 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Providers;
+namespace Corals\Utility\Comment\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +14,7 @@ class UtilityRouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Corals\Modules\Utility\Comment\Http\Controllers';
+    protected $namespace = 'Corals\Utility\Comment\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

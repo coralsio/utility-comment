@@ -1,6 +1,6 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Traits;
+namespace Corals\Utility\Comment\Traits;
 
 trait CommentCommon
 {

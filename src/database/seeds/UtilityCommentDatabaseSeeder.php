@@ -1,6 +1,6 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\database\seeds;
+namespace Corals\Utility\Comment\database\seeds;
 
 use Corals\User\Communication\Models\NotificationTemplate;
 use Corals\User\Models\Permission;

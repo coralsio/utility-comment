@@ -1,6 +1,6 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Notifications;
+namespace Corals\Utility\Comment\Notifications;
 
 use Corals\User\Communication\Classes\CoralsBaseNotification;
 

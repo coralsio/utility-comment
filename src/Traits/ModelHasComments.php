@@ -1,8 +1,8 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Traits;
+namespace Corals\Utility\Comment\Traits;
 
-use Corals\Modules\Utility\Comment\Models\Comment;
+use Corals\Utility\Comment\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
 
 trait ModelHasComments

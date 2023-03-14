@@ -1,9 +1,9 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Http\Requests;
+namespace Corals\Utility\Comment\Http\Requests;
 
 use Corals\Foundation\Http\Requests\BaseRequest;
-use Corals\Modules\Utility\Comment\Models\Comment;
+use Corals\Utility\Comment\Models\Comment;
 
 class CommentRequest extends BaseRequest
 {

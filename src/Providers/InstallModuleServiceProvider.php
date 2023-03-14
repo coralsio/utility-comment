@@ -1,10 +1,10 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Providers;
+namespace Corals\Utility\Comment\Providers;
 
 use Corals\Foundation\Providers\BaseInstallModuleServiceProvider;
-use Corals\Modules\Utility\Comment\database\migrations\CreateCommentsTable;
-use Corals\Modules\Utility\Comment\database\seeds\UtilityCommentDatabaseSeeder;
+use Corals\Utility\Comment\database\migrations\CreateCommentsTable;
+use Corals\Utility\Comment\database\seeds\UtilityCommentDatabaseSeeder;
 
 class InstallModuleServiceProvider extends BaseInstallModuleServiceProvider
 {

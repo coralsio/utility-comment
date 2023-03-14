@@ -1,14 +1,14 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Http\Controllers;
+namespace Corals\Utility\Comment\Http\Controllers;
 
 use Corals\Foundation\Http\Controllers\BaseController;
 use Corals\Foundation\Http\Requests\BulkRequest;
-use Corals\Modules\Utility\Comment\DataTables\CommentsDataTable;
-use Corals\Modules\Utility\Comment\Http\Requests\CommentRequest;
-use Corals\Modules\Utility\Comment\Models\Comment;
-use Corals\Modules\Utility\Comment\Services\CommentService;
-use Corals\Modules\Utility\Comment\Traits\CommentCommon;
+use Corals\Utility\Comment\DataTables\CommentsDataTable;
+use Corals\Utility\Comment\Http\Requests\CommentRequest;
+use Corals\Utility\Comment\Models\Comment;
+use Corals\Utility\Comment\Services\CommentService;
+use Corals\Utility\Comment\Traits\CommentCommon;
 
 class CommentBaseController extends BaseController
 {

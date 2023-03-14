@@ -1,9 +1,9 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Providers;
+namespace Corals\Utility\Comment\Providers;
 
-use Corals\Modules\Utility\Comment\Models\Comment;
-use Corals\Modules\Utility\Comment\Policies\CommentPolicy;
+use Corals\Utility\Comment\Models\Comment;
+use Corals\Utility\Comment\Policies\CommentPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class UtilityAuthServiceProvider extends ServiceProvider

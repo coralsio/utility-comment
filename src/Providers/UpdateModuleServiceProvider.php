@@ -1,6 +1,6 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Providers;
+namespace Corals\Utility\Comment\Providers;
 
 use Corals\Foundation\Providers\BaseUpdateModuleServiceProvider;
 

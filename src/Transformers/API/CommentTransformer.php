@@ -1,9 +1,9 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Transformers\API;
+namespace Corals\Utility\Comment\Transformers\API;
 
 use Corals\Foundation\Transformers\APIBaseTransformer;
-use Corals\Modules\Utility\Comment\Models\Comment;
+use Corals\Utility\Comment\Models\Comment;
 
 class CommentTransformer extends APIBaseTransformer
 {

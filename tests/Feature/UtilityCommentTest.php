@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use Corals\Modules\Utility\Comment\Models\Comment;
+use Corals\Utility\Comment\Models\Comment;
 use Corals\Settings\Facades\Modules;
 use Corals\User\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -48,7 +48,8 @@ class UtilityCommentTest extends TestCase
                         if ($model) {
                             $comments = ["Im happy", "Hey people", "Good", "Nice"];
                             $response = $this->post($array['prefix'] . '/' . $model->hashed_id . '/create-comment', [
-                                'body' => array_rand($comments), ]);
+                                'body' => array_rand($comments),
+                            ]);
 
                             $this->comment = Comment::query()->first();
                             $response->assertDontSee('The given data was invalid')
@@ -56,11 +57,14 @@ class UtilityCommentTest extends TestCase
 
                             $names = ["Ali", "Nour", "Susan", "Tom"];
                             $email = ["ali@comment.com", "nour@comment.com", "susan@comment.com", "tom@comment.com"];
-                            $response2 = $this->post($array['prefix'] . '/' . $this->comment->hashed_id . '/create-reply', [
-                                'properties' => [
-                                    'author_name' => array_rand($names),
-                                    'author_email' => array_rand($email), ],
-                                'body' => array_rand($comments), ]);
+                            $response2 = $this->post($array['prefix'] . '/' . $this->comment->hashed_id . '/create-reply',
+                                [
+                                    'properties' => [
+                                        'author_name' => array_rand($names),
+                                        'author_email' => array_rand($email),
+                                    ],
+                                    'body' => array_rand($comments),
+                                ]);
 
                             $response2->assertDontSee('The given data was invalid')
                                 ->assertSeeText('Your comment has been added successfully');

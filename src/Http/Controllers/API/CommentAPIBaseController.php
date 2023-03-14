@@ -1,12 +1,12 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Http\Controllers\API;
+namespace Corals\Utility\Comment\Http\Controllers\API;
 
 use Corals\Foundation\Http\Controllers\APIBaseController;
-use Corals\Modules\Utility\Comment\Http\Requests\CommentRequest;
-use Corals\Modules\Utility\Comment\Models\Comment;
-use Corals\Modules\Utility\Comment\Services\CommentService;
-use Corals\Modules\Utility\Comment\Traits\CommentCommon;
+use Corals\Utility\Comment\Http\Requests\CommentRequest;
+use Corals\Utility\Comment\Models\Comment;
+use Corals\Utility\Comment\Services\CommentService;
+use Corals\Utility\Comment\Traits\CommentCommon;
 
 class CommentAPIBaseController extends APIBaseController
 {

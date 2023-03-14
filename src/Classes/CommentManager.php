@@ -1,8 +1,8 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Classes;
+namespace Corals\Utility\Comment\Classes;
 
-use Corals\Modules\Utility\Comment\Models\Comment as CommentModel;
+use Corals\Utility\Comment\Models\Comment as CommentModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 

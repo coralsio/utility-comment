@@ -1,6 +1,6 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\database\seeds;
+namespace Corals\Utility\Comment\database\seeds;
 
 use Carbon\Carbon;
 use Corals\User\Models\Role;

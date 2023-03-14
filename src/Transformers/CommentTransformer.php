@@ -1,9 +1,9 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Transformers;
+namespace Corals\Utility\Comment\Transformers;
 
 use Corals\Foundation\Transformers\BaseTransformer;
-use Corals\Modules\Utility\Comment\Models\Comment;
+use Corals\Utility\Comment\Models\Comment;
 use Illuminate\Support\Str;
 
 class CommentTransformer extends BaseTransformer

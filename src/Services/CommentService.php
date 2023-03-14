@@ -1,9 +1,9 @@
 <?php
 
-namespace Corals\Modules\Utility\Comment\Services;
+namespace Corals\Utility\Comment\Services;
 
 use Corals\Foundation\Services\BaseServiceClass;
-use Corals\Modules\Utility\Comment\Classes\CommentManager;
+use Corals\Utility\Comment\Classes\CommentManager;
 
 class CommentService extends BaseServiceClass
 {
@@ -12,7 +12,7 @@ class CommentService extends BaseServiceClass
      * @param $commentableClass
      * @param $commentable_hashed_id
      * @param null $author
-     * @return \Corals\Modules\Utility\Comment\Models\Comment|\Illuminate\Database\Eloquent\Model
+     * @return \Corals\Utility\Comment\Models\Comment|\Illuminate\Database\Eloquent\Model
      */
     public function createComment($data, $commentableClass, $commentable_hashed_id, $author = null)
     {

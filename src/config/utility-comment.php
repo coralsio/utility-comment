@@ -3,7 +3,7 @@
 return [
     'models' => [
         'comment' => [
-            'presenter' => \Corals\Modules\Utility\Comment\Transformers\CommentPresenter::class,
+            'presenter' => \Corals\Utility\Comment\Transformers\CommentPresenter::class,
             'resource_url' => 'utilities/comments',
             'status_options' => [
                 'pending' => [
