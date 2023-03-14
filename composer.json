@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Corals\\Modules\\Utility\\Comment\\": "src"
+            "Corals\\Utility\\Comment\\": "src"
         }
     },
     "autoload-dev": {
@@ -39,7 +39,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Corals\\Modules\\Utility\\Comment\\UtilityCommentServiceProvider"
+                "Corals\\Utility\\Comment\\UtilityCommentServiceProvider"
             ]
         }
     },

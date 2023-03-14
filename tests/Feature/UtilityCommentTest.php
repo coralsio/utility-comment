@@ -43,7 +43,7 @@ class UtilityCommentTest extends TestCase
 
                 foreach ($myClasses as $class) {
                     $traits = class_uses($class);
-                    if (array_search('Corals\\Modules\\Utility\\Comment\\Traits\\ModelHasComments', $traits)) {
+                    if (array_search('Corals\\Utility\\Comment\\Traits\\ModelHasComments', $traits)) {
                         $model = $class::query()->first();
                         if ($model) {
                             $comments = ["Im happy", "Hey people", "Good", "Nice"];
