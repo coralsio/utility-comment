@@ -11,6 +11,6 @@
     "folder": "utility-comment",
     "icon": "fa fa-comment",
     "require": {
-        "corals-utility": "^4.0"
+        "corals-utility": "^10.0.0"
     }
 }
